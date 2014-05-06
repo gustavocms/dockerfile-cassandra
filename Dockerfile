@@ -16,8 +16,8 @@ RUN /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin
 RUN apt-get -y install oracle-java7-installer oracle-java7-set-default
 
 # Install Cassandra
-RUN echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.sources.list
-RUN curl -L http://debian.datastax.com/debian/repo_key | sudo apt-key add -
+RUN echo "deb http://debian.datastax.com/community stable main" | tee -a /etc/apt/sources.list.d/datastax.sources.list
+RUN curl -L http://debian.datastax.com/debian/repo_key | apt-key add -
 RUN apt-get update
 RUN apt-get install -y dsc20
 
