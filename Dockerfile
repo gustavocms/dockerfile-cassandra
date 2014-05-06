@@ -1,10 +1,12 @@
-FROM ubuntu:latest
+FROM ubuntu:precise
 
 # Install pre-requisite packages
 RUN apt-get install -y curl libjna-java
 
 # Add Java 7 repo
-RUN add-apt-repository -y ppa:webupd8team/java
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+RUN echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 RUN apt-get update
 
 # Preemptively accept the Oracle License
