@@ -18,6 +18,7 @@ CMD ["/sbin/my_init"]
 
 
 # Install pre-requisite packages
+RUN apt-get update
 RUN apt-get install -y curl libjna-java
 
 # Add Java 7 repo
